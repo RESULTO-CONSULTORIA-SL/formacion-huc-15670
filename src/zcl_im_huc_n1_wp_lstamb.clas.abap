@@ -36,7 +36,45 @@ ENDCLASS.
 
 
 
-CLASS zcl_im_huc_n1_wp_lstamb IMPLEMENTATION.
+CLASS ZCL_IM_HUC_N1_WP_LSTAMB IMPLEMENTATION.
+
+
+  METHOD determine_display.
+
+    CLEAR gs_display.
+
+    gs_display-number_of_cases =
+        xsdbool( line_exists( it_dispvar[ fieldname = zif_huc_constants_cws=>gc_fieldname-number_of_cases
+                                          no_out    = abap_false ] ) ).
+
+  ENDMETHOD.
+
+
+  METHOD end.
+
+    IF mo_environment IS BOUND.
+      mo_environment->destroy( ).
+      CLEAR mo_environment.
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD get_number_of_cases.
+
+    IF gs_display-number_of_cases = abap_false.
+      RETURN.
+    ENDIF.
+
+    cl_ishmed_run_dp=>read_cases_for_patient( EXPORTING i_einri         = iv_institution_id
+                                                        i_patnr         = iv_patient_id
+                                                        i_environment   = mo_environment
+                                                        i_buffer_active = abap_true
+                                              IMPORTING et_nfal         = DATA(lt_cases) ).
+
+    rv_result = lines( lt_cases ).
+
+  ENDMETHOD.
 
 
   METHOD if_ex_n1_wp_lstamb~exit_display.
@@ -78,43 +116,4 @@ CLASS zcl_im_huc_n1_wp_lstamb IMPLEMENTATION.
     NEW lcl_adjust_view( )->/rslt/if_ish_cws_view_adjust~fieldcatalog( ).
 
   ENDMETHOD.
-
-
-  METHOD end.
-
-    IF mo_environment IS BOUND.
-      mo_environment->destroy( ).
-      CLEAR mo_environment.
-    ENDIF.
-
-  ENDMETHOD.
-
-
-  METHOD determine_display.
-
-    CLEAR gs_display.
-
-    gs_display-number_of_cases =
-        xsdbool( line_exists( it_dispvar[ fieldname = zif_huc_constants_cws=>gc_fieldname-number_of_cases
-                                          no_out    = abap_false ] ) ).
-
-  ENDMETHOD.
-
-
-  METHOD get_number_of_cases.
-
-    IF gs_display-number_of_cases = abap_false.
-      RETURN.
-    ENDIF.
-
-    cl_ishmed_run_dp=>read_cases_for_patient( EXPORTING i_einri       = iv_institution_id
-                                                        i_patnr       = iv_patient_id
-                                                        i_environment = mo_environment
-                                              IMPORTING et_nfal       = DATA(lt_cases) ).
-
-    rv_result = lines( lt_cases ).
-
-  ENDMETHOD.
-
-
 ENDCLASS.

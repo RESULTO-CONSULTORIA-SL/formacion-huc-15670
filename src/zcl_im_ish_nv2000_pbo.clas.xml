@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_IM_ISH_NV2000_PBO</CLSNAME>
+    <LANGU>S</LANGU>
+    <DESCRIPT>Cl.implement.p.cl.add-in ZIM_ISH_NV2000_PBO</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>PATIENT</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Paciente</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>PATIENT</CMPNAME>
+     <SCONAME>I_FALNR</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>IS-H: Número de episodio</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PATIENT</CMPNAME>
+     <SCONAME>I_INSTITUTION</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>IS-H: Centro sanitario</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PATIENT</CMPNAME>
+     <SCONAME>I_LFDNR</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>IS-H: Número actual de un movimiento</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PATIENT</CMPNAME>
+     <SCONAME>I_PATNR</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>IS-H: Número de paciente</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PATIENT</CMPNAME>
+     <SCONAME>I_VCODE</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>IS-H: Modo de proceso</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
