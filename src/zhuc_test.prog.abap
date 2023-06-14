@@ -17,6 +17,6 @@ FORM start.
 
   li_test = lcl_test=>create( ).
 
-  li_test->update_task( ).
+  li_test->get_pmd_data( ).
 
 ENDFORM.
