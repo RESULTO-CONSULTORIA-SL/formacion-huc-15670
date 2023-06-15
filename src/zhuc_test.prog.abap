@@ -17,6 +17,6 @@ FORM start.
 
   li_test = lcl_test=>create( ).
 
-  li_test->get_pmd_data( ).
+  li_test->display_alv( ).
 
 ENDFORM.
